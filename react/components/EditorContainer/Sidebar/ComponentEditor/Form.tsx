@@ -15,15 +15,18 @@ import RichText from '../../../form/RichText'
 import TextArea from '../../../form/TextArea'
 import Toggle from '../../../form/Toggle'
 
+const ImageWidget = (ImageUploader as unknown) as Widget
+
 export const widgets: Record<string, Widget> = {
   BaseInput,
   CheckboxWidget: Toggle,
+  Image: ImageWidget,
   IOMessage: I18nInput,
   RadioWidget: Radio,
   RichText,
   SelectWidget: Dropdown as Widget,
   TextareaWidget: TextArea,
-  'image-uploader': (ImageUploader as unknown) as Widget,
+  'image-uploader': ImageWidget,
 }
 
 export default class Form extends React.Component<FormProps<any>> {
