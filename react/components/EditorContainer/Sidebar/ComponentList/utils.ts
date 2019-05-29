@@ -101,7 +101,13 @@ export const normalize = (components: SidebarComponent[]) => {
 const buildTree = (orderedNodes: ModifiedSidebarComponent[]) => {
   const nodes: Record<string, NormalizedComponent> = {}
   orderedNodes.forEach(({ modifiedTreePath, ...component }) => {
-    const normalized = { ...component, isSortable: false, components: [] }
+    const normalized = {
+      ...component,
+      components: [],
+      isSortable:
+        isRootComponent(2)({ treePath: modifiedTreePath }) &&
+        getComponentRole(component) === 'blocks',
+    }
     const parentId = parentTreePath(modifiedTreePath)
     nodes[modifiedTreePath] = normalized
 

@@ -33,6 +33,13 @@ const Item: React.FunctionComponent<Props> = ({
   treePath,
 }) => {
   let leftPaddingClassName = 'pl8'
+
+  const marginStyle = isSortable
+    ? hasSubItems
+      ? { marginLeft: 1 }
+      : { marginLeft: 5 }
+    : null
+
   if ((isSortable && !hasSubItems) || isChild) {
     leftPaddingClassName = 'pl5'
   } else if (isSortable) {
@@ -54,7 +61,7 @@ const Item: React.FunctionComponent<Props> = ({
       onMouseLeave={onMouseLeave}
       style={{
         ...{ animationDuration: '0.2s' },
-        ...(!hasSubItems || isSortable ? { marginLeft: 1 } : null),
+        ...marginStyle,
       }}
     >
       <span className={`f6 fw4 track-1 ${isChild ? 'pl7' : 'pl2'}`}>
