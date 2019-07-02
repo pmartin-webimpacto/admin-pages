@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Always refetch content when clicking on a component in the sidebar, so the user always has the most up to date data.
+
 ## [3.15.8] - 2019-07-08
 
 ### Fixed
