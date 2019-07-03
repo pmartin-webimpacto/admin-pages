@@ -1,4 +1,6 @@
+import myvtexSSE from 'myvtex-sse'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { useRuntime } from 'vtex.render-runtime'
 import { Spinner, ToastConsumer } from 'vtex.styleguide'
 
 import { getSitewideTreePath } from '../../../utils/blocks'
@@ -33,6 +35,7 @@ const Content = (props: Props) => {
   const editor = useEditorContext()
   const formMeta = useFormMetaContext()
   const modal = useModalContext()
+  const runtime = useRuntime()
 
   const initialComponents = useMemo(() => getInitialComponents(props), [])
 
@@ -50,6 +53,37 @@ const Content = (props: Props) => {
     },
     [iframeRuntime.route.path]
   )
+
+  useEffect(() => {
+    const pathSSE = `vtex.pages-graphql:*:teste?workspace=${runtime.workspace}`
+    const eventSource = myvtexSSE(
+      runtime.account,
+      runtime.workspace,
+      pathSSE,
+      {}
+    )
+    eventSource.onopen = () =>
+      console.log('[pages] Connected to event server successfully')
+    eventSource.onerror = () =>
+      console.log('[pages] Connection to event server failed')
+
+    const handler = ({ data }: MessageEvent) => {
+      const event = JSON.parse(data)
+      const {
+        key,
+        body: { code, type, hash, locales, subject },
+      } = event
+
+      console.log(data)
+
+      iframeRuntime.updateRuntime()
+    }
+    eventSource.onmessage = handler
+
+    return function eventCleanUp() {
+      eventSource.close()
+    }
+  }, [])
 
   if (editor.editTreePath === null) {
     return (

@@ -4452,6 +4452,11 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
+myvtex-sse@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/myvtex-sse/-/myvtex-sse-1.2.0.tgz#5267f4e33360e836402a1bab55f76bb19aeba300"
+  integrity sha512-76CZLWeas0dMChBKwXr/DiNalx4iOb7UcljxLJc+Rv6L663dJY47/rqBDj7mF5BCj0/DVRtZPuLtl4b9s6f0lQ==
+
 nan@^2.12.1:
   version "2.14.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"

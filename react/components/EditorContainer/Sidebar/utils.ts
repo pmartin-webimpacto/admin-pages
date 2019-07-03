@@ -1,4 +1,3 @@
-import { JSONSchema6 } from 'json-schema'
 import { has, path, pathOr } from 'ramda'
 import { ComponentsRegistry } from 'vtex.render-runtime'
 

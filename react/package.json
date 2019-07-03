@@ -12,6 +12,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.startcase": "^4.4.0",
     "lodash.throttle": "^4.1.1",
+    "myvtex-sse": "^1.2.0",
     "ramda": "^0.25.0",
     "react-draggable": "^3.0.5",
     "react-dropzone": "^10.1.3",
