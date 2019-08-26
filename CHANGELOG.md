@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - All linting issues pointed out by VTEX's ESLint config, from typings to a11y.
+- Typo in the Portuguese version of the production workspace warning text.
+- Temporarily replace the `lint` script from the Travis CI configuration with a generic `test` script.
 
 ## [4.7.2] - 2019-08-13
 
